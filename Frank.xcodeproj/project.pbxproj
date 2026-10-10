@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3655DBEBDD9965E1661D11BE /* AssistantStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EB2266DAD1951049A3836 /* AssistantStateTests.swift */; };
+		3CC207185C33335C2D1EB310 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50706F2B6A5764ECAE9A3350 /* AppConfiguration.swift */; };
+		4F67AEA6A3CF7E58F14FADE3 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE818FD4AAAE477A46714B31 /* AssistantView.swift */; };
+		7BE26C9DB64ACD9526C10C0B /* AssistantState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CEF9A908013AF4928D882 /* AssistantState.swift */; };
+		7C8E8CD03C91E4278ABF5141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CECE48B62A965B87601F60 /* Foundation.framework */; };
+		93A14148D2DFA18DD658C1DA /* FrankTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F6A8058439CD627F67711 /* FrankTransport.swift */; };
+		A588553725B03190BD7D108A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CECE48B62A965B87601F60 /* Foundation.framework */; };
+		CE963D6CE6A6FD8765AEA415 /* FrankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDFD29BCCE00AD80D2D79C /* FrankApp.swift */; };
+		EDBF0E7F50654312D75F6185 /* AssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D869AAABD2C5E20FA93DD8 /* AssistantViewModel.swift */; };
+		FA9EB58CA1D8A60E6C26553A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B8F5806DEA267216B9CA89 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85D2AD83A2FA8F67956D23E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A4C973A22E32C852D82CEC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38CDE473910326C9F816536D;
+			remoteInfo = Frank;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		186CEF9A908013AF4928D882 /* AssistantState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantState.swift; path = Core/Models/AssistantState.swift; sourceTree = "<group>"; };
+		28C42FEA29D9158AA5082063 /* Base.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		34B8F5806DEA267216B9CA89 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		3BFDFD29BCCE00AD80D2D79C /* FrankApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrankApp.swift; path = App/FrankApp.swift; sourceTree = "<group>"; };
+		50706F2B6A5764ECAE9A3350 /* AppConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppConfiguration.swift; path = Core/Configuration/AppConfiguration.swift; sourceTree = "<group>"; };
+		53144288B6063CD853E3930F /* Frank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6F6A8058439CD627F67711 /* FrankTransport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrankTransport.swift; path = Core/Networking/FrankTransport.swift; sourceTree = "<group>"; };
+		66EA7629432F41508E4307ED /* FrankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2EB2266DAD1951049A3836 /* AssistantStateTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssistantStateTests.swift; sourceTree = "<group>"; };
+		D8EAE5E4B0AF86946442FAE0 /* Local.xcconfig.example */ = {isa = PBXFileReference; includeInIndex = 1; path = Local.xcconfig.example; sourceTree = "<group>"; };
+		DE818FD4AAAE477A46714B31 /* AssistantView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantView.swift; path = Features/Assistant/AssistantView.swift; sourceTree = "<group>"; };
+		E1CECE48B62A965B87601F60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E8D869AAABD2C5E20FA93DD8 /* AssistantViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantViewModel.swift; path = Features/Assistant/AssistantViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71549A7B684C24CE93C2DAAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C8E8CD03C91E4278ABF5141 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7859F83FE0CABB3B9D278D7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A588553725B03190BD7D108A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37CD434C13A15D653941ACDE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E1CECE48B62A965B87601F60 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3977C733D4D489DFDB705E47 = {
+			isa = PBXGroup;
+			children = (
+				898ACC154C4CD5210A7ED4EF /* Products */,
+				A02E529BA40930F165D9F066 /* Frameworks */,
+				CE7EB90E9328F81E1CB0069F /* Frank */,
+				A171A69ACC8B0363E09D9841 /* FrankTests */,
+				49AB4869392FDB02DA71772C /* Configuration */,
+			);
+			sourceTree = "<group>";
+		};
+		49AB4869392FDB02DA71772C /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				28C42FEA29D9158AA5082063 /* Base.xcconfig */,
+				D8EAE5E4B0AF86946442FAE0 /* Local.xcconfig.example */,
+			);
+			name = Configuration;
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		898ACC154C4CD5210A7ED4EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53144288B6063CD853E3930F /* Frank.app */,
+				66EA7629432F41508E4307ED /* FrankTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A02E529BA40930F165D9F066 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37CD434C13A15D653941ACDE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A171A69ACC8B0363E09D9841 /* FrankTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B2EB2266DAD1951049A3836 /* AssistantStateTests.swift */,
+			);
+			name = FrankTests;
+			path = FrankTests;
+			sourceTree = "<group>";
+		};
+		CE7EB90E9328F81E1CB0069F /* Frank */ = {
+			isa = PBXGroup;
+			children = (
+				3BFDFD29BCCE00AD80D2D79C /* FrankApp.swift */,
+				50706F2B6A5764ECAE9A3350 /* AppConfiguration.swift */,
+				186CEF9A908013AF4928D882 /* AssistantState.swift */,
+				5A6F6A8058439CD627F67711 /* FrankTransport.swift */,
+				DE818FD4AAAE477A46714B31 /* AssistantView.swift */,
+				E8D869AAABD2C5E20FA93DD8 /* AssistantViewModel.swift */,
+				34B8F5806DEA267216B9CA89 /* Assets.xcassets */,
+			);
+			name = Frank;
+			path = Frank;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38CDE473910326C9F816536D /* Frank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7411AAFF6343AED435E659DF /* Build configuration list for PBXNativeTarget "Frank" */;
+			buildPhases = (
+				11420C11ABC41155127D4D90 /* Sources */,
+				71549A7B684C24CE93C2DAAC /* Frameworks */,
+				0F450AE43F6372FFE83967E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Frank;
+			productName = Frank;
+			productReference = 53144288B6063CD853E3930F /* Frank.app */;
+			productType = "com.apple.product-type.application";
+		};
+		514032C6430F0C33578D378C /* FrankTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB90EDD664ACDFB7D978C4B1 /* Build configuration list for PBXNativeTarget "FrankTests" */;
+			buildPhases = (
+				388C1D56702D63B8E79A3ACA /* Sources */,
+				7859F83FE0CABB3B9D278D7C /* Frameworks */,
+				4F4463E870E6F617830C3D37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A84C367D1E6527CF0F8BF021 /* PBXTargetDependency */,
+			);
+			name = FrankTests;
+			productName = FrankTests;
+			productReference = 66EA7629432F41508E4307ED /* FrankTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A4C973A22E32C852D82CEC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+			};
+			buildConfigurationList = C11AA1DC992ECCD7D446A295 /* Build configuration list for PBXProject "Frank" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3977C733D4D489DFDB705E47;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 100;
+			productRefGroup = 898ACC154C4CD5210A7ED4EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38CDE473910326C9F816536D /* Frank */,
+				514032C6430F0C33578D378C /* FrankTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0F450AE43F6372FFE83967E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA9EB58CA1D8A60E6C26553A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F4463E870E6F617830C3D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11420C11ABC41155127D4D90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE963D6CE6A6FD8765AEA415 /* FrankApp.swift in Sources */,
+				3CC207185C33335C2D1EB310 /* AppConfiguration.swift in Sources */,
+				7BE26C9DB64ACD9526C10C0B /* AssistantState.swift in Sources */,
+				93A14148D2DFA18DD658C1DA /* FrankTransport.swift in Sources */,
+				4F67AEA6A3CF7E58F14FADE3 /* AssistantView.swift in Sources */,
+				EDBF0E7F50654312D75F6185 /* AssistantViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		388C1D56702D63B8E79A3ACA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3655DBEBDD9965E1661D11BE /* AssistantStateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A84C367D1E6527CF0F8BF021 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Frank;
+			target = 38CDE473910326C9F816536D /* Frank */;
+			targetProxy = 85D2AD83A2FA8F67956D23E2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3D28F430BF6B698E5C253146 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28C42FEA29D9158AA5082063 /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Frank;
+				INFOPLIST_KEY_FRANK_ACCESS_TOKEN = "$(FRANK_ACCESS_TOKEN)";
+				INFOPLIST_KEY_FRANK_SERVER_URL = "$(FRANK_SERVER_URL)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Frank uses the camera when you ask for visual assistance.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Frank uses your location to provide context when you ask where you are or request nearby assistance.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Frank uses the microphone so you can speak to the assistant.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.idumet.frank;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		56E6A90149154D22EAE5A792 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28C42FEA29D9158AA5082063 /* Base.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idumet.frank.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frank.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frank";
+			};
+			name = Debug;
+		};
+		A097F64083A27F160EAA915F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DAB71B6F5871A46A64895347 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28C42FEA29D9158AA5082063 /* Base.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idumet.frank.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frank.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frank";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4EB445097DEE45F81F41E7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28C42FEA29D9158AA5082063 /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Frank;
+				INFOPLIST_KEY_FRANK_ACCESS_TOKEN = "$(FRANK_ACCESS_TOKEN)";
+				INFOPLIST_KEY_FRANK_SERVER_URL = "$(FRANK_SERVER_URL)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Frank uses the camera when you ask for visual assistance.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Frank uses your location to provide context when you ask where you are or request nearby assistance.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Frank uses the microphone so you can speak to the assistant.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.idumet.frank;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F73237926D0A4442339C2A2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7411AAFF6343AED435E659DF /* Build configuration list for PBXNativeTarget "Frank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D28F430BF6B698E5C253146 /* Release */,
+				F4EB445097DEE45F81F41E7F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB90EDD664ACDFB7D978C4B1 /* Build configuration list for PBXNativeTarget "FrankTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB71B6F5871A46A64895347 /* Release */,
+				56E6A90149154D22EAE5A792 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C11AA1DC992ECCD7D446A295 /* Build configuration list for PBXProject "Frank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F73237926D0A4442339C2A2D /* Debug */,
+				A097F64083A27F160EAA915F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A4C973A22E32C852D82CEC7 /* Project object */;
+}
