@@ -17,6 +17,8 @@
 		CE963D6CE6A6FD8765AEA415 /* FrankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDFD29BCCE00AD80D2D79C /* FrankApp.swift */; };
 		EDBF0E7F50654312D75F6185 /* AssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D869AAABD2C5E20FA93DD8 /* AssistantViewModel.swift */; };
 		FA9EB58CA1D8A60E6C26553A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B8F5806DEA267216B9CA89 /* Assets.xcassets */; };
+		73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */; };
+		09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		DE818FD4AAAE477A46714B31 /* AssistantView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantView.swift; path = Features/Assistant/AssistantView.swift; sourceTree = "<group>"; };
 		E1CECE48B62A965B87601F60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E8D869AAABD2C5E20FA93DD8 /* AssistantViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantViewModel.swift; path = Features/Assistant/AssistantViewModel.swift; sourceTree = "<group>"; };
+		B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtocolModels.swift; path = Core/Protocol/ProtocolModels.swift; sourceTree = "<group>"; };
+		A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtocolModelsTests.swift; path = ProtocolModelsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 		49AB4869392FDB02DA71772C /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */,
+				B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */,
 				28C42FEA29D9158AA5082063 /* Base.xcconfig */,
 				D8EAE5E4B0AF86946442FAE0 /* Local.xcconfig.example */,
 			);
@@ -208,6 +214,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */,
+				73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */,
 				FA9EB58CA1D8A60E6C26553A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
