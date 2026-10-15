@@ -19,6 +19,9 @@
 		FA9EB58CA1D8A60E6C26553A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B8F5806DEA267216B9CA89 /* Assets.xcassets */; };
 		73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */; };
 		09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */; };
+		C7F606AF8C9E13746DFC0C89 /* DeviceMessageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */; };
+		4E5361F3CFA05D3DB732186F /* DeviceProtocolFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */; };
+		FAD1F4C7272E61EE6EFE3C49 /* DeviceMessageDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE05F7A4048C0362191CE71B /* DeviceMessageDecoderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		E8D869AAABD2C5E20FA93DD8 /* AssistantViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantViewModel.swift; path = Features/Assistant/AssistantViewModel.swift; sourceTree = "<group>"; };
 		B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtocolModels.swift; path = Core/Protocol/ProtocolModels.swift; sourceTree = "<group>"; };
 		A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtocolModelsTests.swift; path = ProtocolModelsTests.swift; sourceTree = "<group>"; };
+		46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceMessageDecoder.swift; path = Core/Protocol/DeviceMessageDecoder.swift; sourceTree = "<group>"; };
+		E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceProtocolFixtures.swift; path = Fixtures/DeviceProtocolFixtures.swift; sourceTree = "<group>"; };
+		EE05F7A4048C0362191CE71B /* DeviceMessageDecoderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceMessageDecoderTests.swift; path = DeviceMessageDecoderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,9 @@
 		49AB4869392FDB02DA71772C /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				EE05F7A4048C0362191CE71B /* DeviceMessageDecoderTests.swift */,
+				E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */,
+				46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */,
 				A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */,
 				B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */,
 				28C42FEA29D9158AA5082063 /* Base.xcconfig */,
@@ -214,6 +223,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD1F4C7272E61EE6EFE3C49 /* DeviceMessageDecoderTests.swift in Sources */,
+				4E5361F3CFA05D3DB732186F /* DeviceProtocolFixtures.swift in Sources */,
+				C7F606AF8C9E13746DFC0C89 /* DeviceMessageDecoder.swift in Sources */,
 				09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */,
 				73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */,
 				FA9EB58CA1D8A60E6C26553A /* Assets.xcassets in Resources */,
