@@ -22,6 +22,7 @@
 		C7F606AF8C9E13746DFC0C89 /* DeviceMessageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */; };
 		4E5361F3CFA05D3DB732186F /* DeviceProtocolFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */; };
 		FAD1F4C7272E61EE6EFE3C49 /* DeviceMessageDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE05F7A4048C0362191CE71B /* DeviceMessageDecoderTests.swift */; };
+		6B025D856403184FE47378E5 /* FrankTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4678C45C21D6280CAFF927 /* FrankTransportTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceMessageDecoder.swift; path = Core/Protocol/DeviceMessageDecoder.swift; sourceTree = "<group>"; };
 		E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceProtocolFixtures.swift; path = Fixtures/DeviceProtocolFixtures.swift; sourceTree = "<group>"; };
 		EE05F7A4048C0362191CE71B /* DeviceMessageDecoderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceMessageDecoderTests.swift; path = DeviceMessageDecoderTests.swift; sourceTree = "<group>"; };
+		6F4678C45C21D6280CAFF927 /* FrankTransportTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrankTransportTests.swift; path = FrankTransportTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +99,6 @@
 		49AB4869392FDB02DA71772C /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				EE05F7A4048C0362191CE71B /* DeviceMessageDecoderTests.swift */,
-				E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */,
-				46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */,
-				A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */,
-				B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */,
 				28C42FEA29D9158AA5082063 /* Base.xcconfig */,
 				D8EAE5E4B0AF86946442FAE0 /* Local.xcconfig.example */,
 			);
@@ -129,6 +126,10 @@
 		A171A69ACC8B0363E09D9841 /* FrankTests */ = {
 			isa = PBXGroup;
 			children = (
+				A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */,
+				E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */,
+				EE05F7A4048C0362191CE71B /* DeviceMessageDecoderTests.swift */,
+				6F4678C45C21D6280CAFF927 /* FrankTransportTests.swift */,
 				8B2EB2266DAD1951049A3836 /* AssistantStateTests.swift */,
 			);
 			name = FrankTests;
@@ -138,6 +139,8 @@
 		CE7EB90E9328F81E1CB0069F /* Frank */ = {
 			isa = PBXGroup;
 			children = (
+				B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */,
+				46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */,
 				3BFDFD29BCCE00AD80D2D79C /* FrankApp.swift */,
 				50706F2B6A5764ECAE9A3350 /* AppConfiguration.swift */,
 				186CEF9A908013AF4928D882 /* AssistantState.swift */,
@@ -223,11 +226,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD1F4C7272E61EE6EFE3C49 /* DeviceMessageDecoderTests.swift in Sources */,
-				4E5361F3CFA05D3DB732186F /* DeviceProtocolFixtures.swift in Sources */,
-				C7F606AF8C9E13746DFC0C89 /* DeviceMessageDecoder.swift in Sources */,
-				09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */,
-				73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */,
 				FA9EB58CA1D8A60E6C26553A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +244,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */,
+				C7F606AF8C9E13746DFC0C89 /* DeviceMessageDecoder.swift in Sources */,
 				CE963D6CE6A6FD8765AEA415 /* FrankApp.swift in Sources */,
 				3CC207185C33335C2D1EB310 /* AppConfiguration.swift in Sources */,
 				7BE26C9DB64ACD9526C10C0B /* AssistantState.swift in Sources */,
@@ -259,6 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */,
+				4E5361F3CFA05D3DB732186F /* DeviceProtocolFixtures.swift in Sources */,
+				FAD1F4C7272E61EE6EFE3C49 /* DeviceMessageDecoderTests.swift in Sources */,
+				6B025D856403184FE47378E5 /* FrankTransportTests.swift in Sources */,
 				3655DBEBDD9965E1661D11BE /* AssistantStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
