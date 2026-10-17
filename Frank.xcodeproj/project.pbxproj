@@ -25,6 +25,8 @@
 		6B025D856403184FE47378E5 /* FrankTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4678C45C21D6280CAFF927 /* FrankTransportTests.swift */; };
 		E07C9EADD44B9F59A0BB7DAB /* ReconnectingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6634E3DD73CC49AD0937DEA7 /* ReconnectingTransport.swift */; };
 		754379F25813EF927A91A7C3 /* ReconnectingTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC3C1A589F969E8C0FAB9E9 /* ReconnectingTransportTests.swift */; };
+		D83E0C39D26324E38DD084BA /* AssistantSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6142ECD4830242413D0A8549 /* AssistantSession.swift */; };
+		A79829672587E9C6C5B6C0DA /* AssistantSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CA1B0F9AD50B90619273A /* AssistantSessionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		6F4678C45C21D6280CAFF927 /* FrankTransportTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrankTransportTests.swift; path = FrankTransportTests.swift; sourceTree = "<group>"; };
 		6634E3DD73CC49AD0937DEA7 /* ReconnectingTransport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReconnectingTransport.swift; path = Core/Networking/ReconnectingTransport.swift; sourceTree = "<group>"; };
 		4AC3C1A589F969E8C0FAB9E9 /* ReconnectingTransportTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReconnectingTransportTests.swift; path = ReconnectingTransportTests.swift; sourceTree = "<group>"; };
+		6142ECD4830242413D0A8549 /* AssistantSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantSession.swift; path = Features/Assistant/AssistantSession.swift; sourceTree = "<group>"; };
+		E96CA1B0F9AD50B90619273A /* AssistantSessionTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantSessionTests.swift; path = AssistantSessionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		A171A69ACC8B0363E09D9841 /* FrankTests */ = {
 			isa = PBXGroup;
 			children = (
+				E96CA1B0F9AD50B90619273A /* AssistantSessionTests.swift */,
 				4AC3C1A589F969E8C0FAB9E9 /* ReconnectingTransportTests.swift */,
 				A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */,
 				E8B6EEC87E7F83AF02C04628 /* DeviceProtocolFixtures.swift */,
@@ -144,6 +149,7 @@
 		CE7EB90E9328F81E1CB0069F /* Frank */ = {
 			isa = PBXGroup;
 			children = (
+				6142ECD4830242413D0A8549 /* AssistantSession.swift */,
 				6634E3DD73CC49AD0937DEA7 /* ReconnectingTransport.swift */,
 				B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */,
 				46CF3730AC1149E32D7F6259 /* DeviceMessageDecoder.swift */,
@@ -250,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83E0C39D26324E38DD084BA /* AssistantSession.swift in Sources */,
 				E07C9EADD44B9F59A0BB7DAB /* ReconnectingTransport.swift in Sources */,
 				73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */,
 				C7F606AF8C9E13746DFC0C89 /* DeviceMessageDecoder.swift in Sources */,
@@ -266,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79829672587E9C6C5B6C0DA /* AssistantSessionTests.swift in Sources */,
 				754379F25813EF927A91A7C3 /* ReconnectingTransportTests.swift in Sources */,
 				09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */,
 				4E5361F3CFA05D3DB732186F /* DeviceProtocolFixtures.swift in Sources */,
