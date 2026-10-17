@@ -27,6 +27,8 @@
 		754379F25813EF927A91A7C3 /* ReconnectingTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC3C1A589F969E8C0FAB9E9 /* ReconnectingTransportTests.swift */; };
 		D83E0C39D26324E38DD084BA /* AssistantSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6142ECD4830242413D0A8549 /* AssistantSession.swift */; };
 		A79829672587E9C6C5B6C0DA /* AssistantSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CA1B0F9AD50B90619273A /* AssistantSessionTests.swift */; };
+		6E82D6749D548A4C43695C17 /* MicrophoneRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E15DF3914EEAD080C0494 /* MicrophoneRecorder.swift */; };
+		B3BECF657E28652A456154FD /* MicrophoneRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38A64246310BA5864A875C /* MicrophoneRecorderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		4AC3C1A589F969E8C0FAB9E9 /* ReconnectingTransportTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReconnectingTransportTests.swift; path = ReconnectingTransportTests.swift; sourceTree = "<group>"; };
 		6142ECD4830242413D0A8549 /* AssistantSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantSession.swift; path = Features/Assistant/AssistantSession.swift; sourceTree = "<group>"; };
 		E96CA1B0F9AD50B90619273A /* AssistantSessionTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssistantSessionTests.swift; path = AssistantSessionTests.swift; sourceTree = "<group>"; };
+		0F1E15DF3914EEAD080C0494 /* MicrophoneRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MicrophoneRecorder.swift; path = Core/Audio/MicrophoneRecorder.swift; sourceTree = "<group>"; };
+		DC38A64246310BA5864A875C /* MicrophoneRecorderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MicrophoneRecorderTests.swift; path = MicrophoneRecorderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 		A171A69ACC8B0363E09D9841 /* FrankTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC38A64246310BA5864A875C /* MicrophoneRecorderTests.swift */,
 				E96CA1B0F9AD50B90619273A /* AssistantSessionTests.swift */,
 				4AC3C1A589F969E8C0FAB9E9 /* ReconnectingTransportTests.swift */,
 				A2D72144AC3457C1271F9B37 /* ProtocolModelsTests.swift */,
@@ -149,6 +154,7 @@
 		CE7EB90E9328F81E1CB0069F /* Frank */ = {
 			isa = PBXGroup;
 			children = (
+				0F1E15DF3914EEAD080C0494 /* MicrophoneRecorder.swift */,
 				6142ECD4830242413D0A8549 /* AssistantSession.swift */,
 				6634E3DD73CC49AD0937DEA7 /* ReconnectingTransport.swift */,
 				B6EB612895E4DCCA84BAEE24 /* ProtocolModels.swift */,
@@ -256,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E82D6749D548A4C43695C17 /* MicrophoneRecorder.swift in Sources */,
 				D83E0C39D26324E38DD084BA /* AssistantSession.swift in Sources */,
 				E07C9EADD44B9F59A0BB7DAB /* ReconnectingTransport.swift in Sources */,
 				73EBAF508BBE1D6051F18D74 /* ProtocolModels.swift in Sources */,
@@ -273,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BECF657E28652A456154FD /* MicrophoneRecorderTests.swift in Sources */,
 				A79829672587E9C6C5B6C0DA /* AssistantSessionTests.swift in Sources */,
 				754379F25813EF927A91A7C3 /* ReconnectingTransportTests.swift in Sources */,
 				09891DBB857A65E5F182A161 /* ProtocolModelsTests.swift in Sources */,
