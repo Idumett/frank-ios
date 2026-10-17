@@ -34,7 +34,6 @@ protocol MicrophoneCapturing: AnyObject {
 final class MicrophoneRecorder: MicrophoneCapturing {
     private let engine: AVAudioEngine
     private let session: AVAudioSession
-    private var chunkHandler: (@Sendable (CapturedAudioChunk) -> Void)?
     private(set) var isRecording = false
 
     init(engine: AVAudioEngine = AVAudioEngine(), session: AVAudioSession = .sharedInstance()) {
@@ -56,11 +55,11 @@ final class MicrophoneRecorder: MicrophoneCapturing {
 
         try session.setCategory(.playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetoothHFP])
         try session.setActive(true)
-        chunkHandler = onChunk
         input.installTap(onBus: 0, bufferSize: 2_048, format: format) { [weak self] buffer, _ in
+            guard self != nil else { return }
             guard let firstChannel = buffer.floatChannelData?[0] else { return }
             let samples = Array(UnsafeBufferPointer(start: firstChannel, count: Int(buffer.frameLength)))
-            self?.chunkHandler?(CapturedAudioChunk(samples: samples, sampleRate: format.sampleRate))
+            onChunk(CapturedAudioChunk(samples: samples, sampleRate: format.sampleRate))
         }
         engine.prepare()
         do {
@@ -68,7 +67,6 @@ final class MicrophoneRecorder: MicrophoneCapturing {
             isRecording = true
         } catch {
             input.removeTap(onBus: 0)
-            chunkHandler = nil
             try? session.setActive(false)
             throw error
         }
@@ -78,7 +76,6 @@ final class MicrophoneRecorder: MicrophoneCapturing {
         guard isRecording else { return }
         engine.inputNode.removeTap(onBus: 0)
         engine.stop()
-        chunkHandler = nil
         isRecording = false
         try? session.setActive(false, options: .notifyOthersOnDeactivation)
     }

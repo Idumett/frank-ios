@@ -56,6 +56,7 @@ final class AssistantSessionTests: XCTestCase {
         let session = AssistantSession(transport: transport)
         _ = try await session.beginTurn()
         await session.stopTurn()
-        XCTAssertNoThrow(try session.beginTurn())
+        let next = try await session.beginTurn()
+        XCTAssertFalse(next.requestId.isEmpty)
     }
 }
