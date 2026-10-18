@@ -23,6 +23,13 @@ struct AssistantView: View {
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
 
+            if !viewModel.transcript.isEmpty {
+                Text("You said: \(viewModel.transcript)")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .accessibilityLabel("You said \(viewModel.transcript)")
+            }
+
             Button(viewModel.state == .listening ? "Stop listening" : "Talk to Frank") {
                 if viewModel.state == .listening {
                     viewModel.stop()

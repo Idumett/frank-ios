@@ -11,6 +11,7 @@ enum VoiceTurnResult: Equatable, Sendable {
 final class VoiceTurnRecorder {
     private let microphone: any MicrophoneCapturing
     private let sendAudio: @Sendable (Data) async throws -> Void
+    private let settings: VoiceActivityDetector.Settings
     private var detector: VoiceActivityDetector
     private var buffer = TurnAudioBuffer()
     private var finished = false
@@ -23,6 +24,7 @@ final class VoiceTurnRecorder {
         sendAudio: @escaping @Sendable (Data) async throws -> Void
     ) {
         self.microphone = microphone
+        self.settings = settings
         detector = VoiceActivityDetector(settings: settings)
         self.sendAudio = sendAudio
     }
@@ -32,7 +34,7 @@ final class VoiceTurnRecorder {
             onResult?(.failed("Microphone permission is needed to hear you."))
             return
         }
-        detector = VoiceActivityDetector()
+        detector = VoiceActivityDetector(settings: settings)
         buffer.reset()
         finished = false
         do {
