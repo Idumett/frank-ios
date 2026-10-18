@@ -8,11 +8,17 @@ final class AssistantViewModel: ObservableObject {
     @Published private(set) var transcript = ""
 
     private let session: AssistantSession?
+    private let audioPlayer: (any ResponseAudioPlaying)?
     private var recorder: VoiceTurnRecorder?
     private var eventTask: Task<Void, Never>?
 
-    init(session: AssistantSession? = nil, microphone: (any MicrophoneCapturing)? = nil) {
+    init(
+        session: AssistantSession? = nil,
+        microphone: (any MicrophoneCapturing)? = nil,
+        audioPlayer: (any ResponseAudioPlaying)? = nil
+    ) {
         self.session = session
+        self.audioPlayer = audioPlayer
         if let session, let microphone {
             recorder = VoiceTurnRecorder(
                 microphone: microphone,
@@ -45,6 +51,7 @@ final class AssistantViewModel: ObservableObject {
         eventTask?.cancel()
         eventTask = nil
         recorder?.cancel()
+        audioPlayer?.stop()
         if let session { Task { await session.stopTurn() } }
         state = .ready
         detail = "Tap the button and speak naturally."
@@ -75,7 +82,16 @@ final class AssistantViewModel: ObservableObject {
                 case let .reply(reply, _):
                     state = .speaking
                     detail = reply.speak
-                case .audio, .stopped:
+                case let .audio(data):
+                    do {
+                        try audioPlayer?.play(data) { [weak self] in
+                            self?.state = .ready
+                            self?.detail = "Tap the button and speak naturally."
+                        }
+                    } catch {
+                        showError("Frank could not play that response.")
+                    }
+                case .stopped:
                     state = .ready
                 case let .error(message, _):
                     showError(message)

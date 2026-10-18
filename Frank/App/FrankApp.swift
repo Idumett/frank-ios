@@ -7,7 +7,11 @@ struct FrankApp: App {
     init() {
         let transport = ReconnectingTransport(transport: FrankWebSocketTransport())
         let session = AssistantSession(transport: transport)
-        viewModel = AssistantViewModel(session: session, microphone: MicrophoneRecorder())
+        viewModel = AssistantViewModel(
+            session: session,
+            microphone: MicrophoneRecorder(),
+            audioPlayer: ResponseAudioPlayer()
+        )
     }
 
     var body: some Scene {
