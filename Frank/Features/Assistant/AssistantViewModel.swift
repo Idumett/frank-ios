@@ -9,16 +9,22 @@ final class AssistantViewModel: ObservableObject {
 
     private let session: AssistantSession?
     private let audioPlayer: (any ResponseAudioPlaying)?
+    private let audioSession: AudioSessionController?
     private var recorder: VoiceTurnRecorder?
     private var eventTask: Task<Void, Never>?
 
     init(
         session: AssistantSession? = nil,
         microphone: (any MicrophoneCapturing)? = nil,
-        audioPlayer: (any ResponseAudioPlaying)? = nil
+        audioPlayer: (any ResponseAudioPlaying)? = nil,
+        audioSession: AudioSessionController? = nil
     ) {
         self.session = session
         self.audioPlayer = audioPlayer
+        self.audioSession = audioSession
+        audioSession?.onChange = { [weak self] change in
+            if case .interrupted = change { self?.stopForInterruption() }
+        }
         if let session, let microphone {
             recorder = VoiceTurnRecorder(
                 microphone: microphone,
@@ -52,6 +58,7 @@ final class AssistantViewModel: ObservableObject {
         eventTask = nil
         recorder?.cancel()
         audioPlayer?.stop()
+        audioSession?.deactivate()
         if let session { Task { await session.stopTurn() } }
         state = .ready
         detail = "Tap the button and speak naturally."
@@ -84,7 +91,9 @@ final class AssistantViewModel: ObservableObject {
                     detail = reply.speak
                 case let .audio(data):
                     do {
+                        try audioSession?.prepareForPlayback()
                         try audioPlayer?.play(data) { [weak self] in
+                            self?.audioSession?.deactivate()
                             self?.state = .ready
                             self?.detail = "Tap the button and speak naturally."
                         }
@@ -110,5 +119,10 @@ final class AssistantViewModel: ObservableObject {
     private func showError(_ message: String) {
         state = .error
         detail = message
+    }
+
+    private func stopForInterruption() {
+        stop()
+        detail = "Frank paused because another audio session started."
     }
 }

@@ -36,6 +36,8 @@
 		F53E8544A7FEC55CCA884C48 /* WavEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA05B36E56BAC8029E7920 /* WavEncoderTests.swift */; };
 		3D268762E51E694CED041701 /* ResponseAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E832673F9A7B0555BD104 /* ResponseAudioPlayer.swift */; };
 		F759746155E6FA0F9E413669 /* ResponseAudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7965636AE3D946B060811 /* ResponseAudioPlayerTests.swift */; };
+		8672E7086E63DF2C9CCD2CBB /* AudioSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D390C87A6D56E2C0565C0B /* AudioSessionController.swift */; };
+		9FBCEC56930933FFC8A514C6 /* AudioSessionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3995D5C8AAF62407BCD0C2E8 /* AudioSessionControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		89DA05B36E56BAC8029E7920 /* WavEncoderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WavEncoderTests.swift; path = WavEncoderTests.swift; sourceTree = "<group>"; };
 		368E832673F9A7B0555BD104 /* ResponseAudioPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseAudioPlayer.swift; path = Core/Audio/ResponseAudioPlayer.swift; sourceTree = "<group>"; };
 		D2E7965636AE3D946B060811 /* ResponseAudioPlayerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseAudioPlayerTests.swift; path = ResponseAudioPlayerTests.swift; sourceTree = "<group>"; };
+		A8D390C87A6D56E2C0565C0B /* AudioSessionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioSessionController.swift; path = Core/Audio/AudioSessionController.swift; sourceTree = "<group>"; };
+		3995D5C8AAF62407BCD0C2E8 /* AudioSessionControllerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioSessionControllerTests.swift; path = AudioSessionControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 		A171A69ACC8B0363E09D9841 /* FrankTests */ = {
 			isa = PBXGroup;
 			children = (
+				3995D5C8AAF62407BCD0C2E8 /* AudioSessionControllerTests.swift */,
 				D2E7965636AE3D946B060811 /* ResponseAudioPlayerTests.swift */,
 				89DA05B36E56BAC8029E7920 /* WavEncoderTests.swift */,
 				D818234E5812162A8070FB06 /* VoiceActivityDetectorTests.swift */,
@@ -171,6 +176,7 @@
 		CE7EB90E9328F81E1CB0069F /* Frank */ = {
 			isa = PBXGroup;
 			children = (
+				A8D390C87A6D56E2C0565C0B /* AudioSessionController.swift */,
 				368E832673F9A7B0555BD104 /* ResponseAudioPlayer.swift */,
 				BA381982D0C69EC8D9B60316 /* VoiceTurnRecorder.swift */,
 				D81D951B9F1BCCB48E57B0EF /* WavEncoder.swift */,
@@ -283,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8672E7086E63DF2C9CCD2CBB /* AudioSessionController.swift in Sources */,
 				3D268762E51E694CED041701 /* ResponseAudioPlayer.swift in Sources */,
 				D06CA7CD21122499DA520863 /* VoiceTurnRecorder.swift in Sources */,
 				D5FEFBF8B46FDB679DEE777A /* WavEncoder.swift in Sources */,
@@ -305,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FBCEC56930933FFC8A514C6 /* AudioSessionControllerTests.swift in Sources */,
 				F759746155E6FA0F9E413669 /* ResponseAudioPlayerTests.swift in Sources */,
 				F53E8544A7FEC55CCA884C48 /* WavEncoderTests.swift in Sources */,
 				84352503755CC78B8202E28E /* VoiceActivityDetectorTests.swift in Sources */,

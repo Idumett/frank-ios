@@ -10,7 +10,8 @@ struct FrankApp: App {
         viewModel = AssistantViewModel(
             session: session,
             microphone: MicrophoneRecorder(),
-            audioPlayer: ResponseAudioPlayer()
+            audioPlayer: ResponseAudioPlayer(),
+            audioSession: AudioSessionController()
         )
     }
 
