@@ -15,6 +15,7 @@ final class VoiceTurnRecorder {
     private var detector: VoiceActivityDetector
     private var buffer = TurnAudioBuffer()
     private var finished = false
+    private var sendTask: Task<Void, Never>?
 
     var onResult: ((VoiceTurnResult) -> Void)?
 
@@ -48,6 +49,8 @@ final class VoiceTurnRecorder {
 
     func cancel() {
         finished = true
+        sendTask?.cancel()
+        sendTask = nil
         microphone.stop()
         buffer.reset()
     }
@@ -77,10 +80,13 @@ final class VoiceTurnRecorder {
             onResult?(.noSpeech)
             return
         }
-        Task {
+        sendTask = Task {
             do {
                 try await sendAudio(wav)
+                try Task.checkCancellation()
                 onResult?(.sent)
+            } catch is CancellationError {
+                return
             } catch {
                 onResult?(.failed("Frank could not send that recording."))
             }

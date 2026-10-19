@@ -8,6 +8,8 @@ enum AssistantState: String, Equatable, Sendable {
     case disconnected
     case error
 
+    var isActive: Bool { self == .listening || self == .thinking || self == .speaking }
+
     var announcement: String {
         switch self {
         case .ready: "Frank is ready"

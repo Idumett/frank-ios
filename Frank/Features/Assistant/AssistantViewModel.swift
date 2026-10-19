@@ -12,6 +12,7 @@ final class AssistantViewModel: ObservableObject {
     private let audioSession: AudioSessionController?
     private var recorder: VoiceTurnRecorder?
     private var eventTask: Task<Void, Never>?
+    private var turnGeneration = 0
 
     init(
         session: AssistantSession? = nil,
@@ -37,6 +38,8 @@ final class AssistantViewModel: ObservableObject {
     }
 
     func beginListening() {
+        turnGeneration += 1
+        let generation = turnGeneration
         state = .listening
         detail = "I’m listening."
         guard let session, let recorder else { return }
@@ -46,14 +49,16 @@ final class AssistantViewModel: ObservableObject {
                 try await session.start()
                 _ = try await session.beginTurn()
                 await recorder.start()
-                await readEvents(from: session)
+                await readEvents(from: session, generation: generation)
             } catch {
+                guard generation == turnGeneration else { return }
                 showError("Frank could not connect. Please try again.")
             }
         }
     }
 
     func stop() {
+        turnGeneration += 1
         eventTask?.cancel()
         eventTask = nil
         recorder?.cancel()
@@ -78,21 +83,25 @@ final class AssistantViewModel: ObservableObject {
         }
     }
 
-    private func readEvents(from session: AssistantSession) async {
+    private func readEvents(from session: AssistantSession, generation: Int) async {
         do {
-            while !Task.isCancelled {
+            while !Task.isCancelled, generation == turnGeneration {
                 switch try await session.nextEvent() {
                 case let .transcript(text, _):
+                    guard generation == turnGeneration else { return }
                     transcript = text
                     state = .thinking
                     detail = "Working on that."
                 case let .reply(reply, _):
+                    guard generation == turnGeneration else { return }
                     state = .speaking
                     detail = reply.speak
                 case let .audio(data):
+                    guard generation == turnGeneration else { return }
                     do {
                         try audioSession?.prepareForPlayback()
                         try audioPlayer?.play(data) { [weak self] in
+                            guard self?.turnGeneration == generation else { return }
                             self?.audioSession?.deactivate()
                             self?.state = .ready
                             self?.detail = "Tap the button and speak naturally."

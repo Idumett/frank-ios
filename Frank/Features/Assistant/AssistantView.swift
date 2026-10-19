@@ -30,8 +30,8 @@ struct AssistantView: View {
                     .accessibilityLabel("You said \(viewModel.transcript)")
             }
 
-            Button(viewModel.state == .listening ? "Stop listening" : "Talk to Frank") {
-                if viewModel.state == .listening {
+            Button(viewModel.state.isActive ? "Stop Frank" : "Talk to Frank") {
+                if viewModel.state.isActive {
                     viewModel.stop()
                 } else {
                     viewModel.beginListening()
