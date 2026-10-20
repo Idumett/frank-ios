@@ -41,6 +41,12 @@ struct AssistantView: View {
             .controlSize(.large)
             .frame(minWidth: 180, minHeight: 56)
 
+            if !viewModel.lastReply.isEmpty, !viewModel.state.isActive {
+                Button("Repeat Frank") { viewModel.repeatLastResponse() }
+                    .frame(minWidth: 160, minHeight: 48)
+                    .accessibilityHint("Plays Frank’s last response again")
+            }
+
             Spacer()
         }
         .padding(32)

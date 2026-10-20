@@ -6,6 +6,8 @@ final class AssistantViewModel: ObservableObject {
     @Published private(set) var state: AssistantState = .ready
     @Published private(set) var detail = "Tap the button and speak naturally."
     @Published private(set) var transcript = ""
+    @Published private(set) var lastReply = ""
+    @Published private(set) var suggestedAction: String?
 
     private let session: AssistantSession?
     private let audioPlayer: (any ResponseAudioPlaying)?
@@ -81,6 +83,20 @@ final class AssistantViewModel: ObservableObject {
         detail = "Tap the button and speak naturally."
     }
 
+    func repeatLastResponse() {
+        guard let session else { return }
+        Task {
+            do {
+                try await audioSession?.prepareForPlayback()
+                try await session.repeatLastResponse()
+                state = .speaking
+                detail = "Repeating the last response."
+            } catch {
+                showError("Frank could not repeat that response.")
+            }
+        }
+    }
+
     private func receive(_ result: VoiceTurnResult) {
         switch result {
         case .speechStarted:
@@ -108,6 +124,8 @@ final class AssistantViewModel: ObservableObject {
                     guard generation == turnGeneration else { return }
                     state = .speaking
                     detail = reply.speak
+                    lastReply = reply.speak
+                    suggestedAction = reply.suggestedAction
                 case let .audio(data):
                     guard generation == turnGeneration else { return }
                     do {

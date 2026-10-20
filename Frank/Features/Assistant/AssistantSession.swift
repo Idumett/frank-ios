@@ -37,6 +37,10 @@ actor AssistantSession {
         try await transport.send(.context(snapshot))
     }
 
+    func repeatLastResponse() async throws {
+        try await transport.send(.repeatLast())
+    }
+
     func start() async throws {
         guard !started else { return }
         try await transport.connect()

@@ -59,4 +59,13 @@ final class AssistantSessionTests: XCTestCase {
         let next = try await session.beginTurn()
         XCTAssertFalse(next.requestId.isEmpty)
     }
+
+    func testRepeatStaysOnTheSameServerSession() async throws {
+        let transport = SessionTransport()
+        let session = AssistantSession(transport: transport, sessionId: "session-1")
+        try await session.start()
+        try await session.repeatLastResponse()
+        let sent = await transport.sentMessages()
+        XCTAssertEqual(sent.map(\.type), ["hello", "repeat"])
+    }
 }
