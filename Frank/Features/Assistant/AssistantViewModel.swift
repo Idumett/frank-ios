@@ -10,6 +10,7 @@ final class AssistantViewModel: ObservableObject {
     private let session: AssistantSession?
     private let audioPlayer: (any ResponseAudioPlaying)?
     private let audioSession: AudioSessionController?
+    private let camera: (any PreparedFrameProviding)?
     private var recorder: VoiceTurnRecorder?
     private var eventTask: Task<Void, Never>?
     private var turnGeneration = 0
@@ -18,11 +19,13 @@ final class AssistantViewModel: ObservableObject {
         session: AssistantSession? = nil,
         microphone: (any MicrophoneCapturing)? = nil,
         audioPlayer: (any ResponseAudioPlaying)? = nil,
-        audioSession: AudioSessionController? = nil
+        audioSession: AudioSessionController? = nil,
+        camera: (any PreparedFrameProviding)? = nil
     ) {
         self.session = session
         self.audioPlayer = audioPlayer
         self.audioSession = audioSession
+        self.camera = camera
         audioSession?.onChange = { [weak self] change in
             if case .interrupted = change { self?.stopForInterruption() }
         }
@@ -48,7 +51,9 @@ final class AssistantViewModel: ObservableObject {
             do {
                 try await session.start()
                 _ = try await session.beginTurn()
+                async let cameraReady = camera?.start()
                 await recorder.start()
+                _ = await cameraReady
                 await readEvents(from: session, generation: generation)
             } catch {
                 guard generation == turnGeneration else { return }
@@ -114,7 +119,15 @@ final class AssistantViewModel: ObservableObject {
                 case let .error(message, _):
                     showError(message)
                     return
-                case .connected, .ready, .frameRequired, .contextAcknowledged:
+                case let .frameRequired(maxAgeMs, _, requestId):
+                    guard let frame = await camera?.freshest(maxAgeMs: maxAgeMs) else {
+                        showError("I need a clearer current view. Point the camera and try again.")
+                        await session.stopTurn()
+                        return
+                    }
+                    try await session.sendFrame(frame, requestId: requestId)
+                    detail = "Checking the current view."
+                case .connected, .ready, .contextAcknowledged, .frameAcknowledged:
                     break
                 }
             }

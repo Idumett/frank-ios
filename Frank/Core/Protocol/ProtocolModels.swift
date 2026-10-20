@@ -34,6 +34,13 @@ struct ClientEnvelope: Encodable, Sendable {
     var sentAt: String?
     var mime: String?
     var audioBase64: String?
+    var frameRequestId: String?
+    var frameId: String?
+    var seq: Int?
+    var bytesBase64: String?
+    var capturedAt: String?
+    var ageMs: Int?
+    var quality: String?
     var intent: FrankIntent?
     var query: String?
     var t: Int64?
@@ -44,6 +51,20 @@ struct ClientEnvelope: Encodable, Sendable {
     }
     static func audio(_ data: Data, mime: AudioMimeType, trace: DeviceTrace) -> Self {
         .init(type: "audio", trace: trace, sentAt: ISO8601DateFormatter().string(from: Date()), mime: mime.rawValue, audioBase64: data.base64EncodedString())
+    }
+    static func frame(_ frame: PreparedFrame, requestId: String, sequence: Int, trace: DeviceTrace) -> Self {
+        .init(
+            type: "frame",
+            trace: trace,
+            mime: ImageMimeType.jpeg.rawValue,
+            frameRequestId: requestId,
+            frameId: frame.id,
+            seq: sequence,
+            bytesBase64: frame.jpeg.base64EncodedString(),
+            capturedAt: ISO8601DateFormatter().string(from: frame.capturedAt),
+            ageMs: frame.ageMs(),
+            quality: frame.quality.rawValue
+        )
     }
     static func stop() -> Self { .init(type: "stop") }
     static func repeatLast() -> Self { .init(type: "repeat") }

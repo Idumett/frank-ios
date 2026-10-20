@@ -11,7 +11,8 @@ struct FrankApp: App {
             session: session,
             microphone: MicrophoneRecorder(),
             audioPlayer: ResponseAudioPlayer(),
-            audioSession: AudioSessionController()
+            audioSession: AudioSessionController(),
+            camera: PreparedCamera()
         )
     }
 

@@ -15,6 +15,7 @@ enum AssistantSessionEvent: Sendable {
     case stopped
     case error(message: String, code: String?)
     case contextAcknowledged(String)
+    case frameAcknowledged(frameId: String, processed: Bool?)
 }
 
 actor AssistantSession {
@@ -22,6 +23,8 @@ actor AssistantSession {
     private let sessionId: String
     private var activeRequestId: String?
     private var started = false
+    private var frameSequence = 0
+    private var pendingFrames: [Int: String] = [:]
 
     init(transport: any FrankTransport, sessionId: String = UUID().uuidString.lowercased()) {
         self.transport = transport
@@ -55,6 +58,18 @@ actor AssistantSession {
         try await transport.send(.audio(data, mime: mime, trace: DeviceTrace(sessionId: sessionId, requestId: activeRequestId)))
     }
 
+    func sendFrame(_ frame: PreparedFrame, requestId: String) async throws {
+        guard let activeRequestId else { throw AssistantSessionError.noActiveTurn }
+        frameSequence += 1
+        pendingFrames[frameSequence] = frame.id
+        try await transport.send(.frame(
+            frame,
+            requestId: requestId,
+            sequence: frameSequence,
+            trace: DeviceTrace(sessionId: sessionId, requestId: activeRequestId)
+        ))
+    }
+
     func stopTurn() async {
         if activeRequestId != nil { try? await transport.send(.stop()) }
         activeRequestId = nil
@@ -85,8 +100,10 @@ actor AssistantSession {
                 }
             case let .frameRequired(trace, maxAgeMs, reason, requestId):
                 if isCurrent(trace) { return .frameRequired(maxAgeMs: maxAgeMs, reason: reason, requestId: requestId) }
-            case .acknowledged:
-                continue
+            case let .acknowledged(sequence, trace, processed):
+                guard trace == nil || trace.map(isCurrent) == true,
+                      let frameId = pendingFrames.removeValue(forKey: sequence) else { continue }
+                return .frameAcknowledged(frameId: frameId, processed: processed)
             case let .stopped(trace):
                 if trace == nil || trace.map(isCurrent) == true {
                     activeRequestId = nil
