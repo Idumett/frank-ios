@@ -11,6 +11,7 @@ final class AssistantViewModel: ObservableObject {
     private let audioPlayer: (any ResponseAudioPlaying)?
     private let audioSession: AudioSessionController?
     private let camera: (any PreparedFrameProviding)?
+    private let contextEngine: ContextEngine?
     private var recorder: VoiceTurnRecorder?
     private var eventTask: Task<Void, Never>?
     private var turnGeneration = 0
@@ -20,12 +21,14 @@ final class AssistantViewModel: ObservableObject {
         microphone: (any MicrophoneCapturing)? = nil,
         audioPlayer: (any ResponseAudioPlaying)? = nil,
         audioSession: AudioSessionController? = nil,
-        camera: (any PreparedFrameProviding)? = nil
+        camera: (any PreparedFrameProviding)? = nil,
+        contextEngine: ContextEngine? = nil
     ) {
         self.session = session
         self.audioPlayer = audioPlayer
         self.audioSession = audioSession
         self.camera = camera
+        self.contextEngine = contextEngine
         audioSession?.onChange = { [weak self] change in
             if case .interrupted = change { self?.stopForInterruption() }
         }
@@ -52,6 +55,10 @@ final class AssistantViewModel: ObservableObject {
                 try await session.start()
                 _ = try await session.beginTurn()
                 async let cameraReady = camera?.start()
+                if let contextEngine {
+                    let snapshot = contextEngine.snapshot(sessionId: await session.contextSessionId(), appState: .listening)
+                    try await session.sendContext(snapshot)
+                }
                 await recorder.start()
                 _ = await cameraReady
                 await readEvents(from: session, generation: generation)

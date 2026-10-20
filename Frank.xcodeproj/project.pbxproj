@@ -40,6 +40,9 @@
 		9FBCEC56930933FFC8A514C6 /* AudioSessionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3995D5C8AAF62407BCD0C2E8 /* AudioSessionControllerTests.swift */; };
 		F78502F509752BDD880FB76C /* PreparedCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7A9BA2F9061A7A4F4167D /* PreparedCamera.swift */; };
 		CEAF951E51FAB9245523FB8D /* PreparedCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACDE6B3EED6D5D6E5F77630 /* PreparedCameraTests.swift */; };
+		0D359790A68CCD4CD387BBFD /* ContextSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4C4E4B0579188D6D81937C /* ContextSnapshot.swift */; };
+		E5C9320FBE4526D81CF82821 /* ContextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF07E2ED1B690E3973F692 /* ContextEngine.swift */; };
+		AFD211365974319BC0ECAF39 /* ContextSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC127C4A3BA4F1551311CF0 /* ContextSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		3995D5C8AAF62407BCD0C2E8 /* AudioSessionControllerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioSessionControllerTests.swift; path = AudioSessionControllerTests.swift; sourceTree = "<group>"; };
 		DAD7A9BA2F9061A7A4F4167D /* PreparedCamera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreparedCamera.swift; path = Core/Camera/PreparedCamera.swift; sourceTree = "<group>"; };
 		0ACDE6B3EED6D5D6E5F77630 /* PreparedCameraTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreparedCameraTests.swift; path = PreparedCameraTests.swift; sourceTree = "<group>"; };
+		FD4C4E4B0579188D6D81937C /* ContextSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextSnapshot.swift; path = Core/Context/ContextSnapshot.swift; sourceTree = "<group>"; };
+		C1FF07E2ED1B690E3973F692 /* ContextEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextEngine.swift; path = Core/Context/ContextEngine.swift; sourceTree = "<group>"; };
+		9EC127C4A3BA4F1551311CF0 /* ContextSnapshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextSnapshotTests.swift; path = ContextSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 		A171A69ACC8B0363E09D9841 /* FrankTests */ = {
 			isa = PBXGroup;
 			children = (
+				9EC127C4A3BA4F1551311CF0 /* ContextSnapshotTests.swift */,
 				0ACDE6B3EED6D5D6E5F77630 /* PreparedCameraTests.swift */,
 				3995D5C8AAF62407BCD0C2E8 /* AudioSessionControllerTests.swift */,
 				D2E7965636AE3D946B060811 /* ResponseAudioPlayerTests.swift */,
@@ -181,6 +188,8 @@
 		CE7EB90E9328F81E1CB0069F /* Frank */ = {
 			isa = PBXGroup;
 			children = (
+				C1FF07E2ED1B690E3973F692 /* ContextEngine.swift */,
+				FD4C4E4B0579188D6D81937C /* ContextSnapshot.swift */,
 				DAD7A9BA2F9061A7A4F4167D /* PreparedCamera.swift */,
 				A8D390C87A6D56E2C0565C0B /* AudioSessionController.swift */,
 				368E832673F9A7B0555BD104 /* ResponseAudioPlayer.swift */,
@@ -295,6 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C9320FBE4526D81CF82821 /* ContextEngine.swift in Sources */,
+				0D359790A68CCD4CD387BBFD /* ContextSnapshot.swift in Sources */,
 				F78502F509752BDD880FB76C /* PreparedCamera.swift in Sources */,
 				8672E7086E63DF2C9CCD2CBB /* AudioSessionController.swift in Sources */,
 				3D268762E51E694CED041701 /* ResponseAudioPlayer.swift in Sources */,
@@ -319,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD211365974319BC0ECAF39 /* ContextSnapshotTests.swift in Sources */,
 				CEAF951E51FAB9245523FB8D /* PreparedCameraTests.swift in Sources */,
 				9FBCEC56930933FFC8A514C6 /* AudioSessionControllerTests.swift in Sources */,
 				F759746155E6FA0F9E413669 /* ResponseAudioPlayerTests.swift in Sources */,

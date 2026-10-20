@@ -41,6 +41,7 @@ struct ClientEnvelope: Encodable, Sendable {
     var capturedAt: String?
     var ageMs: Int?
     var quality: String?
+    var snapshot: ContextSnapshot?
     var intent: FrankIntent?
     var query: String?
     var t: Int64?
@@ -66,6 +67,7 @@ struct ClientEnvelope: Encodable, Sendable {
             quality: frame.quality.rawValue
         )
     }
+    static func context(_ snapshot: ContextSnapshot) -> Self { .init(type: "context_snapshot", snapshot: snapshot) }
     static func stop() -> Self { .init(type: "stop") }
     static func repeatLast() -> Self { .init(type: "repeat") }
     static func ping(_ value: Int64) -> Self { .init(type: "ping", t: value) }

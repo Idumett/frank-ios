@@ -31,6 +31,12 @@ actor AssistantSession {
         self.sessionId = sessionId
     }
 
+    func contextSessionId() -> String { sessionId }
+
+    func sendContext(_ snapshot: ContextSnapshot) async throws {
+        try await transport.send(.context(snapshot))
+    }
+
     func start() async throws {
         guard !started else { return }
         try await transport.connect()
