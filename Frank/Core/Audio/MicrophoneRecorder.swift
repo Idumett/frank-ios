@@ -53,7 +53,7 @@ final class MicrophoneRecorder: MicrophoneCapturing {
         let format = input.outputFormat(forBus: 0)
         guard format.sampleRate > 0, format.channelCount > 0 else { throw MicrophoneError.inputUnavailable }
 
-        try session.setCategory(.playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetoothHFP])
+        try session.setCategory(.playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetooth])
         try session.setActive(true)
         input.installTap(onBus: 0, bufferSize: 2_048, format: format) { [weak self] buffer, _ in
             guard self != nil else { return }

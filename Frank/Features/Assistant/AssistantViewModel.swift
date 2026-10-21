@@ -87,7 +87,7 @@ final class AssistantViewModel: ObservableObject {
         guard let session else { return }
         Task {
             do {
-                try await audioSession?.prepareForPlayback()
+                try audioSession?.prepareForPlayback()
                 try await session.repeatLastResponse()
                 state = .speaking
                 detail = "Repeating the last response."

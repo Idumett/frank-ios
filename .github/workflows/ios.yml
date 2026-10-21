@@ -1,0 +1,25 @@
+name: iOS checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build unsigned device target
+        run: >-
+          xcodebuild -project Frank.xcodeproj -scheme Frank
+          -destination 'generic/platform=iOS'
+          -derivedDataPath .build/DerivedData
+          CODE_SIGNING_ALLOWED=NO build
+      - name: Test Stage 1
+        run: >-
+          xcodebuild -project Frank.xcodeproj -scheme Frank
+          -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
+          -derivedDataPath .build/DerivedData
+          CODE_SIGNING_ALLOWED=NO test

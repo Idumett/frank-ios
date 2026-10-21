@@ -50,7 +50,7 @@ enum ContextValue<Value: Encodable & Sendable>: Encodable, Sendable {
 
 struct TimeContext: Encodable, Sendable { let timezone: String; let utcOffsetMinutes: Int }
 struct LocationContext: Encodable, Sendable { let latitude: Double; let longitude: Double; let accuracyMeters: Double; let altitudeMeters: Double? }
-struct MovementContext: Encodable, Sendable { let state: String; let confidence: String; let speedMetersPerSecond: Double?; let headingDegrees: Double? }
+struct MovementContext: Encodable, Sendable { let state: String; let confidence: Double; let speedMetersPerSecond: Double?; let headingDegrees: Double? }
 struct EvidenceContext: Encodable, Sendable { let frameId: String; let capturedAt: String; let ageMs: Int; let quality: String }
 struct AppContext: Encodable, Sendable { let state: String; let sessionOpen: Bool }
 struct PermissionContext: Encodable, Sendable {

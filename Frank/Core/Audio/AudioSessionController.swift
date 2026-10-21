@@ -33,7 +33,7 @@ final class AudioSessionController {
     }
 
     func prepareForPlayback() throws {
-        try session.setCategory(.playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetoothHFP])
+        try session.setCategory(.playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetooth])
         try session.setActive(true)
     }
 

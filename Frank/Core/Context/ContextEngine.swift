@@ -45,7 +45,7 @@ final class ContextEngine {
             let state = speed < 0.4 ? "stationary" : speed < 3 ? "walking" : "vehicle"
             movementValue = known(.init(
                 state: state,
-                confidence: location.horizontalAccuracy <= 30 ? "high" : "low",
+                confidence: location.horizontalAccuracy <= 30 ? 0.9 : 0.45,
                 speedMetersPerSecond: speed,
                 headingDegrees: location.course >= 0 ? location.course : nil
             ), source: sensor)
