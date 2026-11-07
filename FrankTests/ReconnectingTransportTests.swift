@@ -7,6 +7,7 @@ private actor ScriptedTransport: FrankTransport {
     var receiveFailures: [Bool]
     private(set) var connectCalls = 0
     private(set) var disconnectCalls = 0
+    private(set) var sentTypes: [String] = []
 
     init(connectFailures: [Bool], receiveFailures: [Bool]) {
         self.connectFailures = connectFailures
@@ -18,12 +19,13 @@ private actor ScriptedTransport: FrankTransport {
         if !connectFailures.isEmpty, connectFailures.removeFirst() { throw URLError(.cannotConnectToHost) }
     }
     func disconnect() async { disconnectCalls += 1 }
-    func send(_ message: ClientEnvelope) async throws {}
+    func send(_ message: ClientEnvelope) async throws { sentTypes.append(message.type) }
     func receive() async throws -> DecodedServerMessage {
         if !receiveFailures.isEmpty, receiveFailures.removeFirst() { throw URLError(.networkConnectionLost) }
         return .pong(1)
     }
     func counts() -> (Int, Int) { (connectCalls, disconnectCalls) }
+    func messages() -> [String] { sentTypes }
 }
 
 final class ReconnectingTransportTests: XCTestCase {
@@ -44,6 +46,20 @@ final class ReconnectingTransportTests: XCTestCase {
         XCTAssertEqual(counts.1, 2)
         let usedDelays = await delays.values
         XCTAssertEqual(usedDelays, [.milliseconds(10), .milliseconds(20)])
+    }
+
+    func testRestoresTheHelloHandshakeAfterReconnect() async throws {
+        let base = ScriptedTransport(connectFailures: [false, false], receiveFailures: [true, false])
+        let transport = ReconnectingTransport(
+            transport: base,
+            policy: .init(delays: [.milliseconds(1)]),
+            sleep: { _ in }
+        )
+        try await transport.connect()
+        try await transport.send(.hello(trace: .init(sessionId: "session", requestId: "hello-request")))
+        guard case .pong = try await transport.receive() else { return XCTFail("Expected pong") }
+        let messages = await base.messages()
+        XCTAssertEqual(messages, ["hello", "hello"])
     }
 
     func testExplicitDisconnectStopsRecovery() async {

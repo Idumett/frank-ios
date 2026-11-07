@@ -66,9 +66,36 @@ final class AssistantViewModel: ObservableObject {
                 await readEvents(from: session, generation: generation)
             } catch {
                 guard generation == turnGeneration else { return }
+                await session.stopTurn()
                 showError("Frank could not connect. Please try again.")
             }
         }
+    }
+
+    func primaryAction() {
+        switch state {
+        case .listening:
+            finishListening()
+        case .thinking, .speaking:
+            stop()
+        case .ready, .disconnected, .error:
+            beginListening()
+        }
+    }
+
+    var primaryButtonTitle: String {
+        switch state {
+        case .listening: "Done speaking"
+        case .thinking, .speaking: "Stop Frank"
+        case .ready, .disconnected, .error: "Talk to Frank"
+        }
+    }
+
+    private func finishListening() {
+        guard state == .listening else { return }
+        state = .thinking
+        detail = "Sending what you said."
+        recorder?.finish()
     }
 
     func stop() {
@@ -105,9 +132,9 @@ final class AssistantViewModel: ObservableObject {
             state = .thinking
             detail = "Working on that."
         case .noSpeech:
-            showError("I didn’t catch that. Tap once and try again.")
+            failCurrentTurn("I didn’t catch that. Tap once and try again.")
         case let .failed(message):
-            showError(message)
+            failCurrentTurn(message)
         }
     }
 
@@ -159,8 +186,18 @@ final class AssistantViewModel: ObservableObject {
         } catch is CancellationError {
             return
         } catch {
+            await session.stopTurn()
             showError("Frank lost the connection. Tap once to reconnect.")
         }
+    }
+
+    private func failCurrentTurn(_ message: String) {
+        turnGeneration += 1
+        eventTask?.cancel()
+        eventTask = nil
+        recorder?.cancel()
+        if let session { Task { await session.stopTurn() } }
+        showError(message)
     }
 
     private func showError(_ message: String) {

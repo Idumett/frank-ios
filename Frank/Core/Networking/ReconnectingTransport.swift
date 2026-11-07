@@ -16,6 +16,7 @@ actor ReconnectingTransport: FrankTransport {
     private let sleep: Sleep
     private var closed = false
     private var reconnecting: Task<Void, Error>?
+    private var restorationMessage: ClientEnvelope?
 
     init(
         transport: any FrankTransport,
@@ -41,11 +42,12 @@ actor ReconnectingTransport: FrankTransport {
 
     func send(_ message: ClientEnvelope) async throws {
         guard !closed else { throw TransportError.notConnected }
+        if message.type == "hello" { restorationMessage = message }
         do {
             try await transport.send(message)
         } catch {
             try await reconnect()
-            try await transport.send(message)
+            if message.type != "hello" { try await transport.send(message) }
         }
     }
 
@@ -77,6 +79,7 @@ actor ReconnectingTransport: FrankTransport {
                 do {
                     try await sleep(delay)
                     try await transport.connect()
+                    if let restorationMessage { try await transport.send(restorationMessage) }
                     return
                 } catch {
                     lastError = error

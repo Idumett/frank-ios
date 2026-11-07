@@ -44,6 +44,7 @@
 		E5C9320FBE4526D81CF82821 /* ContextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF07E2ED1B690E3973F692 /* ContextEngine.swift */; };
 		AFD211365974319BC0ECAF39 /* ContextSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC127C4A3BA4F1551311CF0 /* ContextSnapshotTests.swift */; };
 		E0C8A1021602DAB370E3314F /* StageOneFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DA410BE6B416FA2202308 /* StageOneFlowTests.swift */; };
+		5EBAC29D4D21BA0033A7CE97 /* VoiceTurnRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498818F24F5DF5DE6541B931 /* VoiceTurnRecorderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		C1FF07E2ED1B690E3973F692 /* ContextEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextEngine.swift; path = Core/Context/ContextEngine.swift; sourceTree = "<group>"; };
 		9EC127C4A3BA4F1551311CF0 /* ContextSnapshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextSnapshotTests.swift; path = ContextSnapshotTests.swift; sourceTree = "<group>"; };
 		544DA410BE6B416FA2202308 /* StageOneFlowTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StageOneFlowTests.swift; path = StageOneFlowTests.swift; sourceTree = "<group>"; };
+		498818F24F5DF5DE6541B931 /* VoiceTurnRecorderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceTurnRecorderTests.swift; path = VoiceTurnRecorderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		A171A69ACC8B0363E09D9841 /* FrankTests */ = {
 			isa = PBXGroup;
 			children = (
+				498818F24F5DF5DE6541B931 /* VoiceTurnRecorderTests.swift */,
 				544DA410BE6B416FA2202308 /* StageOneFlowTests.swift */,
 				9EC127C4A3BA4F1551311CF0 /* ContextSnapshotTests.swift */,
 				0ACDE6B3EED6D5D6E5F77630 /* PreparedCameraTests.swift */,
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBAC29D4D21BA0033A7CE97 /* VoiceTurnRecorderTests.swift in Sources */,
 				E0C8A1021602DAB370E3314F /* StageOneFlowTests.swift in Sources */,
 				AFD211365974319BC0ECAF39 /* ContextSnapshotTests.swift in Sources */,
 				CEAF951E51FAB9245523FB8D /* PreparedCameraTests.swift in Sources */,

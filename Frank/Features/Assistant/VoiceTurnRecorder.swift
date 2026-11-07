@@ -55,6 +55,10 @@ final class VoiceTurnRecorder {
         buffer.reset()
     }
 
+    func finish() {
+        finishAndSend()
+    }
+
     private func receive(_ chunk: CapturedAudioChunk) {
         guard !finished else { return }
         buffer.append(chunk)

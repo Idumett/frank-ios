@@ -43,12 +43,18 @@ actor AssistantSession {
 
     func start() async throws {
         guard !started else { return }
-        try await transport.connect()
-        started = true
-        try await transport.send(.hello(trace: DeviceTrace(
-            sessionId: sessionId,
-            requestId: "hello-\(UUID().uuidString.lowercased())"
-        )))
+        do {
+            try await transport.connect()
+            try await transport.send(.hello(trace: DeviceTrace(
+                sessionId: sessionId,
+                requestId: "hello-\(UUID().uuidString.lowercased())"
+            )))
+            started = true
+        } catch {
+            started = false
+            await transport.disconnect()
+            throw error
+        }
     }
 
     func beginTurn() throws -> DeviceTrace {

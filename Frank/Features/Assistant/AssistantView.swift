@@ -18,6 +18,12 @@ struct AssistantView: View {
                 .font(.title2)
                 .accessibilityAddTraits(.isHeader)
 
+            if viewModel.state == .thinking {
+                ProgressView()
+                    .controlSize(.large)
+                    .accessibilityLabel("Frank is thinking")
+            }
+
             Text(viewModel.detail)
                 .font(.body)
                 .multilineTextAlignment(.center)
@@ -30,16 +36,11 @@ struct AssistantView: View {
                     .accessibilityLabel("You said \(viewModel.transcript)")
             }
 
-            Button(viewModel.state.isActive ? "Stop Frank" : "Talk to Frank") {
-                if viewModel.state.isActive {
-                    viewModel.stop()
-                } else {
-                    viewModel.beginListening()
-                }
-            }
+            Button(viewModel.primaryButtonTitle) { viewModel.primaryAction() }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .frame(minWidth: 180, minHeight: 56)
+            .accessibilityHint(viewModel.state == .listening ? "Stops recording and sends what you said" : "")
 
             if !viewModel.lastReply.isEmpty, !viewModel.state.isActive {
                 Button("Repeat Frank") { viewModel.repeatLastResponse() }
